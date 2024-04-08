@@ -1,0 +1,138 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat;
+}
+.cart__form {
+  background: #f7f6f6;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 379px;
+}
+
+.cart__block .in {
+  width: 288px;
+  border-bottom: 1px solid #cacdd8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin-bottom: 44px;
+}
+
+.cart__block .form__title {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #000000;
+  margin-top: 42px;
+  margin-bottom: 35px;
+}
+
+.cart__block .name {
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+.cart__block .phone {
+  outline: none;
+  border: none;
+  background: transparent;
+}
+.cart__block .address {
+  outline: none;
+  border: none;
+  background: transparent;
+}
+.cart__block .total {
+  margin-top: 20px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 18px;
+}
+
+.cart__block .order1 {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition:
+    transform 0.3s,
+    -webkit-transform 0.3s;
+}
+.cart__block .order1:hover {
+  background-color: transparent;
+  color: white;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  border: none;
+}
+
+.cart__block .order {
+  font-family: "Montserrat";
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  width: 290px;
+  height: 41px;
+  border: 1px solid #040404;
+  border-radius: 20px;
+}
+
+@media (max-width: 1200px) {
+  .cart__form {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cart__form {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+  }
+}
+
+@media (max-width: 767px) {
+  .cart__form {
+    padding-bottom: 149px;
+    width: 100%;
+  }
+}
