@@ -26,7 +26,7 @@ export function Like(props) {
             );
           }}
           className="catalog-item__like"
-          src="../IMG/likered.png"
+          src="./IMG/likered.png"
           alt="#"
         />
       ) : (
@@ -41,7 +41,7 @@ export function Like(props) {
             );
           }}
           className="catalog-item__like"
-          src="../IMG/like.svg"
+          src="./IMG/like.svg"
           alt="#"
         />
       )}

@@ -45,13 +45,13 @@ export const Item_cart = (props) => {
               onClick={() => dispatch(addItemToTheCart(props.item))}
               className="arrow-top"
             >
-              <img src="./img/Vectortop.svg" alt="arrow" />
+              <img src="./IMG/Vectortop.svg" alt="arrow" />
             </div>
             <div
               onClick={() => dispatch(removeGoodFromTheCart(props.item))}
               className="arrow-bottom"
             >
-              <img src="./img/Vectorbottom.svg" alt="arrow" />
+              <img src="./IMG/Vectorbottom.svg" alt="arrow" />
             </div>
           </div>
         </div>

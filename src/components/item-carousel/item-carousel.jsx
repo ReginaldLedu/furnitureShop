@@ -37,7 +37,7 @@ export const ItemCarousel = (props) => {
           <p className="rating__figure">{props.item.rating}</p>
           <img
             className="item-carousel__rating-img"
-            src="../IMG/rating.png"
+            src="./IMG/rating.png"
             alt="#"
           />
         </div>

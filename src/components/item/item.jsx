@@ -40,7 +40,7 @@ export const Item = (props) => {
           />
 
           <p className="rating__figure">{props.item.rating}</p>
-          <img className="rating__img" src="../IMG/rating.png" alt="#" />
+          <img className="rating__img" src="./IMG/rating.png" alt="#" />
         </div>
       </div>
       {cartSlice.find((item) => item.id === props.item.id) === undefined ? (
