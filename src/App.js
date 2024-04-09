@@ -78,7 +78,7 @@ export function App() {
 
   return (
     <Routes>
-      <Route path="/furniture-shop/" element={<Layout />}>
+      <Route path="/furnitureShop/" element={<Layout />}>
         <Route
           index
           element={
