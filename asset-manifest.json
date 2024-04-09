@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/furniture-shop/static/css/main.e7bc6817.css",
-    "main.js": "/furniture-shop/static/js/main.67c5fdf1.js",
-    "static/media/Rectangle15.png": "/furniture-shop/static/media/Rectangle15.6d044c7c663dd161f2b9.png",
-    "static/media/MOBILE-TOP.jpg": "/furniture-shop/static/media/MOBILE-TOP.d7161a49aba63fff84e9.jpg",
-    "static/media/cartmobile-top.png": "/furniture-shop/static/media/cartmobile-top.5c47ebcc89946ec65d65.png",
-    "static/media/Rectangle17.png": "/furniture-shop/static/media/Rectangle17.57587024aeb374b945f5.png",
-    "static/media/catalogtop-mobile.jpg": "/furniture-shop/static/media/catalogtop-mobile.c460b2a9c6f5eee57ddd.jpg",
-    "static/media/Rectangle18.png": "/furniture-shop/static/media/Rectangle18.ab2ab52814d4d4116091.png",
-    "static/media/cartTop.jpg": "/furniture-shop/static/media/cartTop.6f62841df32f9e664aaa.jpg",
-    "static/media/Rectangle21.png": "/furniture-shop/static/media/Rectangle21.df11fc441a3217c3f750.png",
-    "static/media/Rectangle20.jpg": "/furniture-shop/static/media/Rectangle20.37fe17c599cc11637c4a.jpg",
-    "static/media/Rectangle19.jpg": "/furniture-shop/static/media/Rectangle19.eb6a5caae9279af6dc83.jpg",
-    "index.html": "/furniture-shop/index.html",
-    "static/media/Polygon1.svg": "/furniture-shop/static/media/Polygon1.6059e95401c7e3962f89.svg",
-    "main.e7bc6817.css.map": "/furniture-shop/static/css/main.e7bc6817.css.map",
-    "main.67c5fdf1.js.map": "/furniture-shop/static/js/main.67c5fdf1.js.map"
+    "main.css": "/furnitureShop/static/css/main.ceef37e8.css",
+    "main.js": "/furnitureShop/static/js/main.67c5fdf1.js",
+    "static/media/Rectangle15.png": "/furnitureShop/static/media/Rectangle15.6d044c7c663dd161f2b9.png",
+    "static/media/MOBILE-TOP.jpg": "/furnitureShop/static/media/MOBILE-TOP.d7161a49aba63fff84e9.jpg",
+    "static/media/cartmobile-top.png": "/furnitureShop/static/media/cartmobile-top.5c47ebcc89946ec65d65.png",
+    "static/media/Rectangle17.png": "/furnitureShop/static/media/Rectangle17.57587024aeb374b945f5.png",
+    "static/media/catalogtop-mobile.jpg": "/furnitureShop/static/media/catalogtop-mobile.c460b2a9c6f5eee57ddd.jpg",
+    "static/media/Rectangle18.png": "/furnitureShop/static/media/Rectangle18.ab2ab52814d4d4116091.png",
+    "static/media/cartTop.jpg": "/furnitureShop/static/media/cartTop.6f62841df32f9e664aaa.jpg",
+    "static/media/Rectangle21.png": "/furnitureShop/static/media/Rectangle21.df11fc441a3217c3f750.png",
+    "static/media/Rectangle20.jpg": "/furnitureShop/static/media/Rectangle20.37fe17c599cc11637c4a.jpg",
+    "static/media/Rectangle19.jpg": "/furnitureShop/static/media/Rectangle19.eb6a5caae9279af6dc83.jpg",
+    "index.html": "/furnitureShop/index.html",
+    "static/media/Polygon1.svg": "/furnitureShop/static/media/Polygon1.6059e95401c7e3962f89.svg",
+    "main.ceef37e8.css.map": "/furnitureShop/static/css/main.ceef37e8.css.map",
+    "main.67c5fdf1.js.map": "/furnitureShop/static/js/main.67c5fdf1.js.map"
   },
   "entrypoints": [
-    "static/css/main.e7bc6817.css",
+    "static/css/main.ceef37e8.css",
     "static/js/main.67c5fdf1.js"
   ]
 }
