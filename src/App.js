@@ -91,7 +91,7 @@ export function App() {
           }
         />
         <Route
-          path="/catalogue"
+          path="/furnitureShop/catalogue"
           element={
             <Catalogue
               addToTheCart={addToTheCart}
@@ -101,7 +101,7 @@ export function App() {
           }
         />
         <Route
-          path="/chosen"
+          path="/furnitureShop/chosen"
           element={
             <Chosen
               addToTheCart={addToTheCart}
@@ -110,7 +110,7 @@ export function App() {
           }
         />
         <Route
-          path="/basket"
+          path="/furnitureShop/basket"
           element={
             <Basket
               discounted={discounted}
