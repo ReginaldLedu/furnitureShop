@@ -3,7 +3,6 @@ import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import "./discount-carousel.css";
 import { ItemCarousel } from "../item-carousel/item-carousel";
-//import { CSSTransition } from "react-transition-group";
 
 export const DiscountCarousel = (props) => {
   const slider = useRef(null);
@@ -14,6 +13,7 @@ export const DiscountCarousel = (props) => {
     slidesToShow = Math.floor(parentElement.current.style.width / 280);
   }
   let [position, setPosition] = useState(0);
+  const [boolForTransition, setBoolForTransition] = useState(false);
   const slidesToScroll = 1;
   const movePosition = slidesToScroll * 280;
 
@@ -25,8 +25,10 @@ export const DiscountCarousel = (props) => {
       (position += 1 >= slidesToScroll ? movePosition : itemLeft * 280) >= 0
     ) {
       setPosition(0);
+      setBoolForTransition(!boolForTransition);
       slider.current.style.transform = `translateX(${position})`;
     } else {
+      setBoolForTransition(!boolForTransition);
       setPosition(
         (position += 1 >= slidesToScroll ? movePosition : itemLeft * 280)
       );
@@ -38,12 +40,14 @@ export const DiscountCarousel = (props) => {
   const nextHandler = () => {
     const itemLeft =
       props.discounted.length - (Math.abs(position) + slidesToShow * 280) / 280;
+    setBoolForTransition(!boolForTransition);
     setPosition(
       (position -= itemLeft >= slidesToScroll ? movePosition : itemLeft * 280)
     );
 
     if (position <= props.discounted.length * movePosition * -1) {
       slider.current.style.transform = "translateX(0)";
+      setBoolForTransition(!boolForTransition);
       setPosition(0);
     } else {
       slider.current.style.transform = `translateX(${position}px)`;
@@ -62,6 +66,7 @@ export const DiscountCarousel = (props) => {
               alt="arrowback"
             />
           </button>
+
           <section ref={slider} className="slider-track">
             {props.discounted.map((point) => {
               return (
@@ -75,6 +80,7 @@ export const DiscountCarousel = (props) => {
               );
             })}
           </section>
+
           <button className="swiper-button-next" onClick={nextHandler}>
             <img
               src="./IMG/arr.png"
