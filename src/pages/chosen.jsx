@@ -5,9 +5,9 @@ import Header from "../components/header/header";
 import { List } from "../components/list/list";
 import { TitleChosen } from "../components/title-chosen/title-chosen";
 import { useSelector } from "react-redux";
-//import { getLikesByUser } from "../store/rtk";
 
-export const Chosen = /*memo(function CatalogueIn*/ (props) => {
+
+export const Chosen = (props) => {
   const chosen = useSelector(
     (state) => state.rootReducer.furnitureToolkit.chosen
   );
@@ -27,7 +27,7 @@ export const Chosen = /*memo(function CatalogueIn*/ (props) => {
       ></List>
     </>
   );
-}; /*)*/
+}; 
 
 Chosen.propTypes = {
   addToTheCart: PropTypes.func,
