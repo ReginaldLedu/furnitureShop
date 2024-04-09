@@ -13,7 +13,7 @@ export function TitleMain() {
         </div>
       </div>
       <p className="slogan">Наша мебель - ваше отражение</p>
-      <NavLink className="header__link " to="/catalogue">
+      <NavLink className="header__link" to="/furnitureShop/catalogue">
         <p className="catalog">Перейти в каталог</p>
       </NavLink>
     </section>
