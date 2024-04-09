@@ -1,6 +1,7 @@
 {
   "name": "online-shop",
   "version": "0.1.0",
+  "homepage": "https://reginaldledu.github.io/furniture-shop/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
@@ -19,6 +20,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+	 "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "server": "json-server --watch ./json-server/db.json"
@@ -45,6 +48,7 @@
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.0",
+    "gh-pages": "^6.1.1",
     "json-server-auth": "^2.1.0",
     "prettier": "3.2.5"
   }
