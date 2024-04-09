@@ -38,7 +38,7 @@ function Header(props) {
         ""
       )}
       <div className="heading">
-        <NavLink to="/">
+        <NavLink to="/furnitureShop/">
           <div className="heading__logo">
             <img className="logo__img" src="./IMG/logo.svg" />
           </div>
@@ -77,10 +77,10 @@ function Header(props) {
             <UserExit />
           )}
 
-          <NavLink className="header__link" to="/catalogue">
+          <NavLink className="header__link" to="/furnitureShop/catalogue">
             <div className="breadcrumbs">Каталог</div>
           </NavLink>
-          <NavLink className="header__link" to="/basket">
+          <NavLink className="header__link" to="/furnitureShop/basket">
             <div className="breadcrumbs">Корзина</div>
           </NavLink>
         </nav>
@@ -113,7 +113,7 @@ function Header(props) {
             </>
           )}
 
-          <NavLink className="header__link" to="/catalogue">
+          <NavLink className="header__link" to="/furnitureShop/catalogue">
             <span className="icon__catalog">
               <svg
                 width="20"
@@ -188,7 +188,7 @@ function Header(props) {
               </svg>
             </span>
           </NavLink>
-          <NavLink className="header__link" to="/basket">
+          <NavLink className="header__link" to="/furnitureShop/basket">
             <span className="icon__cart">
               <svg
                 width="19"

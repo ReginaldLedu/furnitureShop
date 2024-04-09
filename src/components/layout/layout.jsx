@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, NavLink } from "react-router-dom";
 import "./layout.css";
 
 export const Layout = () => {
@@ -8,7 +8,7 @@ export const Layout = () => {
       <Outlet />
       <footer className="center">
         <div className="footer__logo">
-          <Link>
+          <Link to="/furnitureShop/">
             <div>
               <img src="./IMG/Интерьер..svg" alt="logo" />
             </div>
@@ -18,10 +18,15 @@ export const Layout = () => {
           <div className="footer__blocks">
             <div className="footer__block">
               <h4 className="footer-menu">Меню</h4>
-
-              <span className="footer-menu__link">Главная</span>
-              <span className="footer-menu__link">Каталог</span>
-              <span className="footer-menu__link">Корзина</span>
+              <NavLink to="/furnitureShop/">
+                <span className="footer-menu__link">Главная</span>
+              </NavLink>
+              <NavLink to="/furnitureShop/catalogue">
+                <span className="footer-menu__link">Каталог</span>
+              </NavLink>
+              <NavLink to="/furnitureShop/basket">
+                <span className="footer-menu__link">Корзина</span>
+              </NavLink>
             </div>
             <div className="footer__block">
               <h4 className="footer-menu">Контакты</h4>
