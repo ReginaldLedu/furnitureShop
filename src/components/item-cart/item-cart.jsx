@@ -7,7 +7,7 @@ import { addItemToTheCart, removeGoodFromTheCart } from "../../store/slice";
 import { Like } from "../like/like";
 
 export const Item_cart = (props) => {
-  console.log("item_cart");
+
   const dispatch = useDispatch();
 
   return (

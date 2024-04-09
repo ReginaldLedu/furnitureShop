@@ -26,10 +26,7 @@ export function App() {
   const user = useSelector(
     (state) => state.rootReducer.furnitureToolkit.currentUser
   );
-  const chosen = useSelector(
-    (state) => state.rootReducer.furnitureToolkit.chosen
-  );
-  console.log(chosen);
+
   const { data } = useGetDiscountedItemsQuery();
   const [discounted, setDiscounted] = useState([]);
   useEffect(() => {

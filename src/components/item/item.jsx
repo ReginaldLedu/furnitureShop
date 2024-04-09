@@ -7,7 +7,7 @@ import "./item.css";
 import { Like } from "../like/like";
 
 export const Item = (props) => {
-  console.log("item");
+
 
   const cartSlice = useSelector(
     (state) => state.rootReducer.furnitureToolkit.cart

@@ -11,7 +11,7 @@ export const Chosen = /*memo(function CatalogueIn*/ (props) => {
   const chosen = useSelector(
     (state) => state.rootReducer.furnitureToolkit.chosen
   );
-  console.log("Chosen");
+
 
   return (
     <>

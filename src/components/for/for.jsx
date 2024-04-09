@@ -3,7 +3,7 @@ import { memo } from "react";
 import "./for.css";
 
 export const For = memo(function ForIn() {
-  console.log("for");
+
   return (
     <section className="for center">
       <h2 className="for__title">Мебель для ...</h2>

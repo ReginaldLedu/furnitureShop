@@ -7,7 +7,7 @@ import "./list.css";
 //import { getRandomInt } from "../../helpers/get-random";
 
 export const List = memo(function ListIn(props) {
-  console.log("list");
+
   useEffect(() => {
     if (props.forScroll !== undefined) {
       props.forScroll();

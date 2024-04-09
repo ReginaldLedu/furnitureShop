@@ -6,9 +6,7 @@ import { For } from "../components/for/for";
 import { DiscountCarousel } from "../components/discount-carousel/discount-carousel";
 import { TitleMain } from "../components/title-main/title-main";
 
-export const Main = /*memo(function MainIn */ (props) => {
-  console.log("main");
-
+export const Main = (props) => {
   return (
     <>
       <Header cls="top center">

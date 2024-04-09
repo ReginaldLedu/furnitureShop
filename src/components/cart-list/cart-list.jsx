@@ -8,7 +8,7 @@ import { ClearCart } from "../clear-cart/clear-cart";
 import { Link } from "react-router-dom";
 
 export const Cart_list = (props) => {
-  console.log(props);
+ 
   return (
     <div className="cart__block center">
       <div className="cart__items">

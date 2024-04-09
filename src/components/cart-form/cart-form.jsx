@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./cart-form.css";
 
 export const Cart_form = (props) => {
-  console.log("CartForm");
+
   return (
     <div className="cart__form">
       <h2 className="form__title">Оформление заказа</h2>
@@ -25,4 +25,4 @@ export const Cart_form = (props) => {
   );
 };
 
-Cart_form.propTypes = { totalAmount: PropTypes.string };
+Cart_form.propTypes = { totalAmount: PropTypes.number };

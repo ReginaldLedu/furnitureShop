@@ -7,7 +7,7 @@ import { useGetFirstPageOfFurnitureQuery } from "../store/rtk";
 import { TitleCatalog } from "../components/title-catalog/title-catalog";
 
 export const Catalogue = memo(function CatalogueIn(props) {
-  console.log("Catalog");
+
   const { data: all } = useGetFirstPageOfFurnitureQuery();
   const [renderedList, setRenderedList] = useState([]);
   const [pageNumber, setPageNumber] = useState(2);

@@ -6,7 +6,6 @@ import { ItemCarousel } from "../item-carousel/item-carousel";
 //import { CSSTransition } from "react-transition-group";
 
 export const DiscountCarousel = (props) => {
-  console.log("carousel");
   const slider = useRef(null);
   const parentElement = useRef(null);
 
@@ -21,7 +20,7 @@ export const DiscountCarousel = (props) => {
   const prevHandler = () => {
     const itemLeft =
       props.discounted.length - (Math.abs(position) + slidesToShow * 280) / 280;
-    console.log(itemLeft);
+
     if (
       (position += 1 >= slidesToScroll ? movePosition : itemLeft * 280) >= 0
     ) {
@@ -31,13 +30,12 @@ export const DiscountCarousel = (props) => {
       setPosition(
         (position += 1 >= slidesToScroll ? movePosition : itemLeft * 280)
       );
-      console.log(position);
+
       slider.current.style.transform = `translateX(${position}px)`;
     }
   };
 
   const nextHandler = () => {
-    console.log(position);
     const itemLeft =
       props.discounted.length - (Math.abs(position) + slidesToShow * 280) / 280;
     setPosition(

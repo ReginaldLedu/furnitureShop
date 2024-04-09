@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
-//import styles from "../index.module.css";
+
 import { NavLink } from "react-router-dom";
 import "./header.css";
 import { LoginCover } from "../login/login-cover";
@@ -18,7 +18,7 @@ function Header(props) {
   );
   const [loginCover, setLoginCover] = useState(false);
   const [register, setRegister] = useState(false);
-  console.log("Header");
+
   return (
     // eslint-disable-next-line react/prop-types
     <header className={props.cls}>
