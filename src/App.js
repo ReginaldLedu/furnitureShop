@@ -80,6 +80,7 @@ export function App() {
     <Routes>
       <Route path="/furnitureShop/" element={<Layout />}>
         <Route
+          path="/furnitureShop/"
           index
           element={
             <Main
