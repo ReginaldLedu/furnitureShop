@@ -20,7 +20,7 @@ React, JSON-Server, RTK-Query.
 
 ### Запуск проекта локально 
 
-Для клонирования репозитория выполните команду: git clone https://github.com/ReginaldLedu/furniture-shop.git
+Для клонирования репозитория выполните команду: git clone https://github.com/ReginaldLedu/furnitureShop
 
 Для установки зависимостей выполните команду: npm i
 
