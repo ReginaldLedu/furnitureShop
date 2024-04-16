@@ -12,9 +12,9 @@ export const Cart_form = props => {
 	const ref = useRef(null);
 	const errorClass = () => {
 		if (error) {
-			return "in error";
+			return "phone error";
 		} else {
-			return "in";
+			return "phone";
 		}
 	};
 	return (
@@ -23,10 +23,10 @@ export const Cart_form = props => {
 			<form action="#" className="in">
 				<input type="text" className="name" placeholder="Имя Фамилия" />
 			</form>
-			<form action="#" className={errorClass()}>
+			<form action="#" className="in">
 				<IMaskInput
 					value={phoneNumber}
-					className="phone"
+					className={errorClass()}
 					mask={`+{7}(000)000-00-00`}
 					radix="."
 					unmask={true}
@@ -44,7 +44,6 @@ export const Cart_form = props => {
 					}}
 					placeholder="+7 (___) ___ __-__"
 				/>
-				{/*<input type="tel" className="phone" placeholder="+ 7 904 000 80 80" />*/}
 			</form>
 			<form action="#" className="in">
 				<input type="text" className="address" placeholder="Адрес доставки" />

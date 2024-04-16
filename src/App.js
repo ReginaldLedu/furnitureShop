@@ -9,6 +9,7 @@ import {
   useFurnitureRemoveLikeMutation,
   getLikesByUser,
 } from "./store/rtk";
+import { setCartOnLoad } from "./store/slice";
 import { Main } from "./pages/main";
 import { Catalogue } from "./pages/catalogue";
 import { Basket } from "./pages/basket";
@@ -26,14 +27,13 @@ export function App() {
   const user = useSelector(
     (state) => state.rootReducer.furnitureToolkit.currentUser
   );
+    const cartSlice = useSelector(
+			state => state.rootReducer.furnitureToolkit.cart
+		);
 
   const { data } = useGetDiscountedItemsQuery();
   const [discounted, setDiscounted] = useState([]);
-  useEffect(() => {
-    if (data !== undefined) {
-      setDiscounted(data);
-    }
-  }, [data]);
+
   const dispatch = useDispatch();
   const [setLikeToTheFurniture] = useCallback(
     useFurnitureSetLikeMutation(),
@@ -70,11 +70,28 @@ export function App() {
   const clearCart = useCallback(() => {
     dispatch(removeAllGoodsFromTheCart());
   });
+  window.onload = () => {
+		const cartOnload = localStorage.getItem("cart");
+		if (cartOnload) {
+			const cartParsed = JSON.parse(cartOnload);
+			dispatch(setCartOnLoad(cartParsed));
+		}
+	};
+  useEffect(() => {
+		if (cartSlice.length > 0) {
+			localStorage.setItem("cart", JSON.stringify(cartSlice));
+		}
+	}, [cartSlice]);
   useEffect(() => {
     if (user[0].id !== "") {
       dispatch(getLikesByUser(user[0].id));
     }
   }, [user]);
+    useEffect(() => {
+			if (data !== undefined) {
+				setDiscounted(data);
+			}
+		}, [data]);
 
   return (
     <Routes>

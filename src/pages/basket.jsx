@@ -11,10 +11,11 @@ export const Basket = (props) => {
   const cartSlice = useSelector(
     (state) => state.rootReducer.furnitureToolkit.cart
   );
-  console.log("Cart");
+
+
   const productCost = (object) => {
     if (object["in-sale"] === "true") {
-      console.log(object["in-sale"]);
+  
       const amount = object.quant * object["discount-price"];
       console.log(amount);
       return amount;
