@@ -10,23 +10,23 @@ app.use(async (context, next) => {
   const { pathname } = context.request.url;
 
   // Проверяем, если запрашивается файл
-  // if (pathname.startsWith('/static/')) {
-  //   // Удаляем префикс "/static/" из пути
-  //   const filePath = pathname.replace('/static/', '');
+  if (pathname.startsWith('/static/')) {
+    // Удаляем префикс "/static/" из пути
+    const filePath = pathname.replace('/static/', '');
 
-  //   try {
-  //     // Отдаем файл
-  //     await send(context, filePath, {
-  //       root: STATIC_FILES_DIR,
-  //       index: false,
-  //     });
-  //   } catch (error) {
-  //     console.error(`Файл не найден: ${filePath}, error`);
-  //     await next();
-  //   }
-  // } else {
-  //   await next();
-  // }
+    try {
+      // Отдаем файл
+      await send(context, filePath, {
+        root: STATIC_FILES_DIR,
+        index: false,
+      });
+    } catch (error) {
+      console.error(`Файл не найден: ${filePath}, error`);
+      await next();
+    }
+  } else {
+    await next();
+  }
 });
 
 // Middleware для обработки всех остальных запросов
