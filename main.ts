@@ -3,7 +3,7 @@ import { Application, send } from 'https://deno.land/x/oak/mod.ts';
 const app = new Application();
 
 // Папка, из которой будут отдаваться статические файлы
-const STATIC_FILES_DIR = './build';
+const STATIC_FILES_DIR = './static';
 
 // Middleware для обслуживания статических файлов
 app.use(async (context, next) => {
