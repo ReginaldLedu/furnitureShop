@@ -1,72 +1,80 @@
-import { Application, send } from 'https://deno.land/x/oak/mod.ts';
+import { serve } from 'https://deno.land/std/http/server.ts';
+import { extname } from 'https://deno.land/std/path/mod.ts';
 
-const app = new Application();
+const textHandler = (request: Request): Response => {
+  return new Response('Hello from Deno Deploy!', {
+    headers: { 'content-type': 'text/html; charset=utf-8' },
+  });
+};
+const serveFile = async (path: string) => {
+  const file = await Deno.open(path);
+  return new Response(file.readable, {
+    headers: { 'content-type': getContentType(path) },
+  });
+};
 
-// Папка, из которой будут отдаваться статические файлы
-const STATIC_FILES_DIR = './static';
+const getContentType = (path: string) => {
+  const ext = extname(path);
+  switch (ext) {
+    case '.html':
+      return 'text/html';
+    case '.js':
+      return 'application/javascript';
+    case '.css':
+      return 'text/css';
+    case '.json':
+      return 'application/json';
+    default:
+      return 'application/octet-stream';
+  }
+};
 
-// Middleware для обслуживания статических файлов
-app.use(async (context, next) => {
-  const { pathname } = context.request.url;
+const handler = (request: Request): Response => {
+  // Получаем URL и параметры запроса
+  const url = new URL(request.url);
+  const name = url.searchParams.get('furniture');
+  const age = url.searchParams.get('age');
 
-  // Проверяем, если запрашивается файл
-  if (pathname.startsWith('/static/')) {
-    // Удаляем префикс "/static/" из пути
-    const filePath = pathname.replace('/static/', '');
-
-    try {
-      // Отдаем файл
-      await send(context, filePath, {
-        root: STATIC_FILES_DIR,
-        index: false,
+  // Проверяем метод запроса
+  if (request.method === 'GET') {
+    // Определяем ответ в зависимости от параметров
+    if (name && age) {
+      return new Response(
+        JSON.stringify({
+          message: 'Hello, ${name}! You are ${age} years old.',
+        }),
+        {
+          status: 200,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+    } else if (name) {
+      return new Response(
+        JSON.stringify({
+          message: 'Hello, ${name}!',
+        }),
+        {
+          status: 200,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+    } else {
+      return new Response(JSON.stringify({ message: 'Hello, stranger!' }), {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
-    } catch (error) {
-      console.error(`Файл не найден: ${filePath}, error`);
-      await next();
     }
   } else {
-    await next();
+    // Если метод не GET, возвращаем 405 Method Not Allowed
+    return new Response('Method Not Allowed', { status: 405 });
   }
-});
+};
 
-// Middleware для обработки всех остальных запросов
-app.use(async context => {
-  // Отдаем индексный HTML файл для всех остальных маршрутов
-  await send(context, 'index.html', {
-    root: STATIC_FILES_DIR,
-  });
-});
-
-// Запуск сервера
-const PORT = 8000;
-console.log(`Сервер запущен на http://localhost:${PORT}`);
-await app.listen({ port: PORT });
-
-Deno.serve((_request: Request) => {
-  return new Response('Hello, world!');
-});
-
-// import { serve } from "https://deno.land/std/http/server.ts";
-// import { join, resolve } from "https://deno.land/std/path/mod.ts";
-
-// const PORT = 8000;
-// const buildPath = resolve("build");
-
-// const handler = async (req: Request) => {
-//   const url = new URL(req.url);
-//   const filePath = join(buildPath, url.pathname === "/" ? "index.html" : url.pathname);
-
-//   try {
-//     const file = await Deno.open(filePath);
-//     const contentType = filePath.endsWith(".html") ? "text/html" : "application/octet-stream";
-
-//     return new Response(file.readable, {
-//       headers: { "Content-Type": contentType },
-//     });
-//   } catch (error) {
-//     return new Response("404 Not Found", { status: 404 });
-//   }
-// };
-
-// console.log(`Server running on http://localhost:${PORT}`);
-// await serve(handler, { port: PORT });
+console.log('Listening on http://localhost:8000');
+await serve(handler);
