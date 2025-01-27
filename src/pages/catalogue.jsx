@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { memo, useEffect, useCallback, useState } from "react";
-import PropTypes from "prop-types";
-import Header from "../components/header/header";
-import { Catalog_box } from "../components/catalog_box/catalog_box";
-import { useGetFirstPageOfFurnitureQuery } from "../store/rtk";
-import { TitleCatalog } from "../components/title-catalog/title-catalog";
+import React, { memo, useEffect, useCallback, useState } from 'react';
+import PropTypes from 'prop-types';
+import Header from '../components/header/header';
+import { Catalog_box } from '../components/catalog_box/catalog_box';
+import { useGetFirstPageOfFurnitureQuery } from '../store/rtk';
+import { TitleCatalog } from '../components/title-catalog/title-catalog';
 
 export const Catalogue = memo(function CatalogueIn(props) {
-
   const { data: all } = useGetFirstPageOfFurnitureQuery();
   const [renderedList, setRenderedList] = useState([]);
   const [pageNumber, setPageNumber] = useState(2);
@@ -17,17 +16,18 @@ export const Catalogue = memo(function CatalogueIn(props) {
   const getFurnitureByPageASYNC = useCallback(() => {
     console.log(pageNumber <= totalCount);
     if (fetching)
-      fetch(`http://localhost:3000/furniture?_page=${pageNumber}&_per_page=5`)
-        .then((response) => response.json())
-        .then((json) => {
+      fetch('/express_backend')
+        .then(response => response.json())
+        .then(json => {
+          console.log(json);
           setRenderedList([...renderedList, ...json.data]);
           setTotalCount(json.pages);
-          setPageNumber((prevState) => prevState + 1);
+          setPageNumber(prevState => prevState + 1);
         })
         .finally(() => setFetching(false));
   });
 
-  const scrollHandler = useCallback((e) => {
+  const scrollHandler = useCallback(e => {
     if (
       e.target.documentElement.scrollHeight -
         (e.target.documentElement.scrollTop + window.innerHeight) <
@@ -40,9 +40,9 @@ export const Catalogue = memo(function CatalogueIn(props) {
     }
   });
   const forScroll = useCallback(() => {
-    document.addEventListener("scroll", scrollHandler);
+    document.addEventListener('scroll', scrollHandler);
     return function () {
-      document.removeEventListener("scroll", scrollHandler);
+      document.removeEventListener('scroll', scrollHandler);
     };
   });
 
@@ -53,33 +53,33 @@ export const Catalogue = memo(function CatalogueIn(props) {
     }
   }, [all]);
 
-  const [searchWord, setSearchWord] = useState("");
+  const [searchWord, setSearchWord] = useState('');
   const sortOnChange = useCallback((e, searchWord) => {
     console.log(renderedList);
     if (searchWord.length === 0) {
       switch (e.target.value) {
-        case "new":
-          fetch(`http://localhost:3000/furniture?_sort=likes`)
-            .then((response) => response.json())
-            .then((json) => setRenderedList(json));
+        case 'new':
+          fetch('/express_backend')
+            .then(response => response.json())
+            .then(json => setRenderedList(json.data));
           break;
-        case "toexpensive":
-          fetch(`http://localhost:3000/furniture?_sort=price`)
-            .then((response) => response.json())
-            .then((json) => setRenderedList(json));
+        case 'toexpensive':
+          fetch('/express_backend')
+            .then(response => response.json())
+            .then(json => setRenderedList(json.data));
           break;
-        case "tocheap":
-          fetch(`http://localhost:3000/furniture?_sort=price`)
-            .then((response) => response.json())
-            .then((json) => setRenderedList(json.reverse()));
+        case 'tocheap':
+          fetch('/express_backend')
+            .then(response => response.json())
+            .then(json => setRenderedList(json.data.reverse()));
           break;
-        case "popular":
-          fetch("http://localhost:3000/furniture?_sort=likes")
-            .then((response) => response.json())
-            .then((json) => setRenderedList(json));
+        case 'popular':
+          fetch('/express_backend')
+            .then(response => response.json())
+            .then(json => setRenderedList(json.data));
       }
     } else {
-      if (e.target.value === "popular") {
+      if (e.target.value === 'popular') {
         const forSort = renderedList;
         console.log(forSort);
         setRenderedList(
@@ -88,7 +88,7 @@ export const Catalogue = memo(function CatalogueIn(props) {
           })
         );
         console.log(renderedList);
-      } else if (e.target.value === "tocheap") {
+      } else if (e.target.value === 'tocheap') {
         const forSort = renderedList;
         console.log(forSort);
         setRenderedList(
@@ -97,7 +97,7 @@ export const Catalogue = memo(function CatalogueIn(props) {
           })
         );
         console.log(renderedList);
-      } else if (e.target.value === "toexpensive") {
+      } else if (e.target.value === 'toexpensive') {
         const forSort = renderedList;
         console.log(forSort);
         setRenderedList(
@@ -110,12 +110,12 @@ export const Catalogue = memo(function CatalogueIn(props) {
     }
   });
 
-  const searchOnClick = useCallback((searchWord) => {
-    fetch("http://localhost:3000/furniture")
-      .then((response) => response.json())
-      .then((json) => {
+  const searchOnClick = useCallback(searchWord => {
+    fetch('http://localhost:3000/furniture')
+      .then(response => response.json())
+      .then(json => {
         const filteredRTK = json.filter(
-          (item) =>
+          item =>
             item.title.toLowerCase().includes(searchWord.toLowerCase()) ||
             item.description.toLowerCase().includes(searchWord.toLowerCase()) ||
             item.category.toLowerCase().includes(searchWord.toLowerCase())

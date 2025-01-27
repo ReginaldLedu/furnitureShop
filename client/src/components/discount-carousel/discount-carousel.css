@@ -1,0 +1,157 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.slider-track {
+  transition: all 1s ease;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  gap: 40px;
+  transition: 1s ease-in-out;
+}
+
+.wrapper {
+  height: 480px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+/*padding-left:;
+padding-right: calc(50% - 393px);*/
+
+.swiper-button-prev {
+  z-index: 50;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  top: 35%;
+  left: 3vw;
+  width: 45px;
+  height: 45px;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+}
+.swiper-button-prev:hover {
+  opacity: 0.7;
+}
+
+.swiper-button-next {
+  z-index: 50;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  top: 35%;
+  right: 3vw;
+  width: 45px;
+  height: 45px;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+}
+.swiper-button-next:hover {
+  opacity: 0.7;
+}
+
+.button-prev-img {
+  display: block;
+  transform: rotate(180deg);
+  border-radius: 50%;
+  width: 80%;
+  height: 80%;
+}
+.button-back-img {
+  display: block;
+  border-radius: 50%;
+  width: 80%;
+  height: 80%;
+}
+
+@media (max-width: 1200px) {
+  .wrapper {
+    height: 470px;
+  }
+  .swiper-button-next {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
+  .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+}
+@media (max-width: 767px) {
+  .wrapper {
+    height: 470px;
+  }
+
+  .swiper-button-prev {
+    width: 25px;
+    height: 25px;
+  }
+
+  .swiper-button-next {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/*актуальные стили*/
+.discount {
+  margin-bottom: 72px;
+}
+.discount__title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 59px;
+  color: #000000;
+  padding-bottom: 32px;
+}
+
+@media (max-width: 767px) {
+  .discount {
+    margin-bottom: 36px;
+  }
+  .discount__title {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+  }
+  .slider-track {
+    gap: 15px;
+  }
+}

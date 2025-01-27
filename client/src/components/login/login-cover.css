@@ -1,0 +1,153 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat;
+}
+.body__login {
+  z-index: 20;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.0500000007px;
+  text-align: left;
+  color: red;
+}
+.login__screen {
+  margin-top: 20vh;
+  width: 304px;
+  height: 365px;
+  border-radius: 12px;
+  background-color: white;
+  margin-top: 20vh;
+  z-index: 50;
+  opacity: 1;
+}
+
+.login__wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 279px;
+  margin: auto;
+}
+
+.login__logo {
+  height: 35px;
+  width: 220px;
+
+  margin-top: 33px;
+}
+
+.login__name,
+.login__password {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.0500000007px;
+  text-align: left;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #d0cece;
+  background: transparent;
+  margin-top: 20px;
+  margin-top: 38px;
+  width: 100%;
+}
+
+.login__button,
+.login__button_loading {
+  width: 278px;
+  height: 52px;
+  background-color: #7d7d7d;
+  border: none;
+  outline: none;
+  border-radius: 46px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.0500000007px;
+  text-align: center;
+  color: white;
+  margin-top: 60px;
+}
+
+.login__button_loading {
+  background: linear-gradient(110deg, #580ea2 8%, #7d7d7d 18%, #580ea2 33%);
+  animation-name: loading;
+  animation-duration: 5s;
+}
+
+.login__button:hover {
+  background-color: #3f007d;
+}
+
+.login__button:active {
+  background-color: #271a58;
+}
+
+.register__button {
+  width: 278px;
+  height: 52px;
+  border: 1px solid #d0cece;
+  outline: none;
+  border-radius: 46px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.0500000007px;
+  text-align: center;
+  color: black;
+  margin-top: 20px;
+}
+
+.register__button:hover {
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(#d0cece),
+    to(#d0cece)
+  );
+  background: linear-gradient(0deg, #d0cece, #d0cece);
+}
+
+.register__button:active {
+  background-color: #d0cece;
+}
+
+/*.error {
+  position: absolute;
+  top: 215px;
+  left: 0px;
+  color: coral;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  width: 278px;
+}*/
+
+@keyframes loading {
+  from {
+    background-position-x: 0px;
+  }
+
+  to {
+    background-position-x: 500px;
+  }
+}

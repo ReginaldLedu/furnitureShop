@@ -1,0 +1,54 @@
+.center {
+  padding-left: calc(50% - 600px);
+  padding-right: calc(50% - 600px);
+}
+h1 {
+  font-family: "Montserrat";
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 70px;
+  letter-spacing: 0em;
+  margin-bottom: 16px;
+  margin-top: 127px;
+}
+.cart__title {
+  color: white;
+}
+
+@media (max-width: 1200px) {
+  .center {
+    padding-left: calc(50% - 393px);
+    padding-right: calc(50% - 393px);
+  }
+  .cart__title {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .center {
+    padding-left: calc(50% - 393px);
+    padding-right: calc(50% - 393px);
+  }
+  .cart__title {
+    width: 100%;
+  }
+}
+
+@media (max-width: 833px) {
+  .center {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cart__title {
+    display: none;
+  }
+
+  .center {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
