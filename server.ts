@@ -4,7 +4,7 @@
 import { serve } from "https://deno.land/std/http/server.ts";
 import { join, resolve } from "https://deno.land/std/path/mod.ts";
 
-const PORT = 8000;
+const PORT = 'https://reginaasker-furnituresh-12.deno.dev/';
 const buildPath = resolve("build");
 
 const handler = async (req: Request) => {
