@@ -38,7 +38,7 @@ app.use(async context => {
 });
 
 // Запуск сервера
-const PORT = 3000;
+const PORT = 8000;
 console.log(`Сервер запущен на http://localhost:${PORT}`);
 await app.listen({ port: PORT });
 
