@@ -1,7 +1,7 @@
 {
   "name": "online-shop",
   "version": "0.1.0",
-  "homepage": "https://reginaldledu.github.io/furnitureShop/",
+  "homepage": "https://reginaasker-furnituresh-12.deno.dev/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
