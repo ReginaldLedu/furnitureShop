@@ -1,8 +1,5 @@
 {
   "tasks": {
-    "dev": "deno run -A --node-modules-dir=auto npm:run build & deno run server:start",
-    "build": "deno run -A --node-modules-dir=auto npm:run build",
-    "server:start": "deno run -A --node-modules-dir --watch ./server/main.ts",
-    "serve": "deno run build && deno run server:start"
+    "dev": "deno run --watch main.ts"
   }
 }

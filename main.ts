@@ -1,90 +1,90 @@
-import { Application } from 'jsr:@oak/oak/application';
-import { Router } from 'jsr:@oak/oak/router';
-import { oakCors } from '@tajpouria/cors';
-import routeStaticFilesFrom from './util/routeStaticFilesFrom.ts';
-import data from './api/data.json' with { type: 'json' };
+// import { Application } from 'jsr:@oak/oak/application';
+// import { Router } from 'jsr:@oak/oak/router';
+// import { oakCors } from '@tajpouria/cors';
+// import routeStaticFilesFrom from './util/routeStaticFilesFrom.ts';
+// import data from './api/data.json' with { type: 'json' };
 
-export const app = new Application();
-const router = new Router();
+// export const app = new Application();
+// const router = new Router();
 
-router.get('/api/dinosaurs', context => {
-  context.response.body = data;
-});
+// router.get('/api/dinosaurs', context => {
+//   context.response.body = data;
+// });
 
-router.get('/api/dinosaurs/:dinosaur', context => {
-  if (!context?.params?.dinosaur) {
-    context.response.body = 'No dinosaur name provided.';
-  }
-
-  const dinosaur = data.find(
-    item => item.name.toLowerCase() === context.params.dinosaur.toLowerCase()
-  );
-
-  context.response.body = dinosaur ?? 'No dinosaur found.';
-});
-
-app.use(oakCors());
-app.use(router.routes());
-app.use(router.allowedMethods());
-app.use(
-  routeStaticFilesFrom([
-    `${Deno.cwd()}/client/dist`,
-    `${Deno.cwd()}/client/public`,
-  ])
-);
-
-if (import.meta.main) {
-  console.log('Server listening on port http://localhost:8000');
-  await app.listen({ port: 8000 });
-}
-
-// import { Application, send } from 'https://deno.land/x/oak/mod.ts';
-
-// const app = new Application();
-
-// // Папка, из которой будут отдаваться статические файлы
-// const STATIC_FILES_DIR = './build/static';
-
-// // Middleware для обслуживания статических файлов
-// app.use(async (context, next) => {
-//   const { pathname } = context.request.url;
-
-//   // Проверяем, если запрашивается файл
-//   if (pathname.startsWith('/static/')) {
-//     // Удаляем префикс "/static/" из пути
-//     const filePath = pathname.replace('/static/', '');
-
-//     try {
-//       // Отдаем файл
-//       await send(context, filePath, {
-//         root: STATIC_FILES_DIR,
-//         index: false,
-//       });
-//     } catch (error) {
-//       console.error(`Файл не найден: ${filePath}, error`);
-//       await next();
-//     }
-//   } else {
-//     await next();
+// router.get('/api/dinosaurs/:dinosaur', context => {
+//   if (!context?.params?.dinosaur) {
+//     context.response.body = 'No dinosaur name provided.';
 //   }
+
+//   const dinosaur = data.find(
+//     item => item.name.toLowerCase() === context.params.dinosaur.toLowerCase()
+//   );
+
+//   context.response.body = dinosaur ?? 'No dinosaur found.';
 // });
 
-// // Middleware для обработки всех остальных запросов
-// app.use(async context => {
-//   // Отдаем индексный HTML файл для всех остальных маршрутов
-//   await send(context, 'index.html', {
-//     root: STATIC_FILES_DIR,
-//   });
-// });
+// app.use(oakCors());
+// app.use(router.routes());
+// app.use(router.allowedMethods());
+// app.use(
+//   routeStaticFilesFrom([
+//     `${Deno.cwd()}/client/dist`,
+//     `${Deno.cwd()}/client/public`,
+//   ])
+// );
 
-// // Запуск сервера
-// const PORT = 3000;
-// console.log(`Сервер запущен на http://localhost:${PORT}`);
-// await app.listen({ port: PORT });
+// if (import.meta.main) {
+//   console.log('Server listening on port http://localhost:8000');
+//   await app.listen({ port: 8000 });
+// }
 
-// Deno.serve((_request: Request) => {
-//   return new Response('Hello, world!');
-// });
+import { Application, send } from 'https://deno.land/x/oak/mod.ts';
+
+const app = new Application();
+
+// Папка, из которой будут отдаваться статические файлы
+const STATIC_FILES_DIR = './build/static';
+
+// Middleware для обслуживания статических файлов
+app.use(async (context, next) => {
+  const { pathname } = context.request.url;
+
+  // Проверяем, если запрашивается файл
+  if (pathname.startsWith('/static/')) {
+    // Удаляем префикс "/static/" из пути
+    const filePath = pathname.replace('/static/', '');
+
+    try {
+      // Отдаем файл
+      await send(context, filePath, {
+        root: STATIC_FILES_DIR,
+        index: false,
+      });
+    } catch (error) {
+      console.error(`Файл не найден: ${filePath}, error`);
+      await next();
+    }
+  } else {
+    await next();
+  }
+});
+
+// Middleware для обработки всех остальных запросов
+app.use(async context => {
+  // Отдаем индексный HTML файл для всех остальных маршрутов
+  await send(context, 'index.html', {
+    root: STATIC_FILES_DIR,
+  });
+});
+
+// Запуск сервера
+const PORT = 3000;
+console.log(`Сервер запущен на http://localhost:${PORT}`);
+await app.listen({ port: PORT });
+
+Deno.serve((_request: Request) => {
+  return new Response('Hello, world!');
+});
 
 // import { serve } from "https://deno.land/std/http/server.ts";
 // import { join, resolve } from "https://deno.land/std/path/mod.ts";
