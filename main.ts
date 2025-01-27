@@ -1,3 +1,43 @@
+import { Application } from 'jsr:@oak/oak/application';
+import { Router } from 'jsr:@oak/oak/router';
+import { oakCors } from '@tajpouria/cors';
+import routeStaticFilesFrom from './util/routeStaticFilesFrom.ts';
+import data from './api/data.json' with { type: 'json' };
+
+export const app = new Application();
+const router = new Router();
+
+router.get('/api/dinosaurs', context => {
+  context.response.body = data;
+});
+
+router.get('/api/dinosaurs/:dinosaur', context => {
+  if (!context?.params?.dinosaur) {
+    context.response.body = 'No dinosaur name provided.';
+  }
+
+  const dinosaur = data.find(
+    item => item.name.toLowerCase() === context.params.dinosaur.toLowerCase()
+  );
+
+  context.response.body = dinosaur ?? 'No dinosaur found.';
+});
+
+app.use(oakCors());
+app.use(router.routes());
+app.use(router.allowedMethods());
+app.use(
+  routeStaticFilesFrom([
+    `${Deno.cwd()}/client/dist`,
+    `${Deno.cwd()}/client/public`,
+  ])
+);
+
+if (import.meta.main) {
+  console.log('Server listening on port http://localhost:8000');
+  await app.listen({ port: 8000 });
+}
+
 // import { Application, send } from 'https://deno.land/x/oak/mod.ts';
 
 // const app = new Application();
@@ -42,33 +82,31 @@
 // console.log(`Сервер запущен на http://localhost:${PORT}`);
 // await app.listen({ port: PORT });
 
-
-
-
 // Deno.serve((_request: Request) => {
 //   return new Response('Hello, world!');
 // });
-import { serve } from "https://deno.land/std/http/server.ts";
-import { join, resolve } from "https://deno.land/std/path/mod.ts";
 
-const PORT = 8000;
-const buildPath = resolve("build");
+// import { serve } from "https://deno.land/std/http/server.ts";
+// import { join, resolve } from "https://deno.land/std/path/mod.ts";
 
-const handler = async (req: Request) => {
-  const url = new URL(req.url);
-  const filePath = join(buildPath, url.pathname === "/" ? "index.html" : url.pathname);
+// const PORT = 8000;
+// const buildPath = resolve("build");
 
-  try {
-    const file = await Deno.open(filePath);
-    const contentType = filePath.endsWith(".html") ? "text/html" : "application/octet-stream";
-    
-    return new Response(file.readable, {
-      headers: { "Content-Type": contentType },
-    });
-  } catch (error) {
-    return new Response("404 Not Found", { status: 404 });
-  }
-};
+// const handler = async (req: Request) => {
+//   const url = new URL(req.url);
+//   const filePath = join(buildPath, url.pathname === "/" ? "index.html" : url.pathname);
 
-console.log(`Server running on http://localhost:${PORT}`);
-await serve(handler, { port: PORT });
+//   try {
+//     const file = await Deno.open(filePath);
+//     const contentType = filePath.endsWith(".html") ? "text/html" : "application/octet-stream";
+
+//     return new Response(file.readable, {
+//       headers: { "Content-Type": contentType },
+//     });
+//   } catch (error) {
+//     return new Response("404 Not Found", { status: 404 });
+//   }
+// };
+
+// console.log(`Server running on http://localhost:${PORT}`);
+// await serve(handler, { port: PORT });
