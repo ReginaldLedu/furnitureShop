@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.39852c45.css",
+    "main.js": "/static/js/main.fd98d089.js",
+    "static/media/Rectangle15.png": "/static/media/Rectangle15.6d044c7c663dd161f2b9.png",
+    "static/media/MOBILE-TOP.jpg": "/static/media/MOBILE-TOP.d7161a49aba63fff84e9.jpg",
+    "static/media/cartmobile-top.png": "/static/media/cartmobile-top.5c47ebcc89946ec65d65.png",
+    "static/media/Rectangle17.png": "/static/media/Rectangle17.57587024aeb374b945f5.png",
+    "static/media/catalogtop-mobile.jpg": "/static/media/catalogtop-mobile.c460b2a9c6f5eee57ddd.jpg",
+    "static/media/Rectangle18.png": "/static/media/Rectangle18.ab2ab52814d4d4116091.png",
+    "static/media/cartTop.jpg": "/static/media/cartTop.6f62841df32f9e664aaa.jpg",
+    "static/media/Rectangle21.png": "/static/media/Rectangle21.df11fc441a3217c3f750.png",
+    "static/media/Rectangle20.jpg": "/static/media/Rectangle20.37fe17c599cc11637c4a.jpg",
+    "static/media/Rectangle19.jpg": "/static/media/Rectangle19.eb6a5caae9279af6dc83.jpg",
+    "index.html": "/index.html",
+    "static/media/Polygon1.svg": "/static/media/Polygon1.ce2a1848f70111e96167.svg",
+    "main.39852c45.css.map": "/static/css/main.39852c45.css.map",
+    "main.fd98d089.js.map": "/static/js/main.fd98d089.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.39852c45.css",
+    "static/js/main.fd98d089.js"
+  ]
+}
