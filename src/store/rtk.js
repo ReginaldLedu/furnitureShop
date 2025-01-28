@@ -1,26 +1,40 @@
 //import { createAsyncThunk } from "@reduxjs/toolkit";
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import {
+  createApi,
+  fetchBaseQuery /* fakeBaseQuery */,
+} from '@reduxjs/toolkit/query/react';
 import { setCurrentUser, setChosen, clearChosen } from './slice';
+// import { dbRef } from '../firebase.js';
+// import { child, get } from 'firebase/database';
+// import { getFurniture } from '../firebase.js';
 
 export const furnitureApi = createApi({
   reducerPath: 'furnitureApi',
   baseQuery: fetchBaseQuery({ baseurl: '' }),
+  // baseQuery: fakeBaseQuery(),
+
   endpoints: builder => ({
     getFirstPageOfFurniture: builder.query({
-      query: () => `http://localhost:3000/furniture?_page=1&_per_page=5`,
+      query: () => 'http://localhost:5000/api/furniture',
     }),
 
     getAllFurniture: builder.query({
-      query: () => 'http://localhost:3000/furniture',
+      query: () => 'http://localhost:5000/api/furniture',
     }),
     // getDiscountedItems: builder.query({
     //   query: () => "http://localhost:3000/furniture?in-sale=true",
     // }),
     getDiscountedItems: builder.query({
-      query: () => '/express_backend',
+      query: () => 'http://localhost:5000/api/furniture',
     }),
+    // getDiscountedItems: builder.query({
+    //   queryFn: () => {
+    //     getFurniture();
+    //     console.log("object")
+    //   },
+    // }),
     getAllLikes: builder.query({
-      query: () => 'http://localhost:3000/likes',
+      query: () => 'http://localhost:5000/api/likes',
     }),
     getPopularFurniture: builder.query({
       query: () => 'http://localhost:3000/furniture?likes_gt=15',
@@ -99,7 +113,7 @@ export const furnitureApi = createApi({
       }),
     }),
     getAllUsers: builder.query({
-      query: () => 'http://localhost:3000/users',
+      query: () => 'http://localhost:5000/api/users',
     }),
     getUserByEmail: builder.query({
       query: userEmail => `http://localhost:3000/users?userEmail=${userEmail}`,

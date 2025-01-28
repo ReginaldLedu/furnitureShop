@@ -90,15 +90,15 @@ export function App() {
   }, [user]);
   useEffect(() => {
     if (data !== undefined) {
-      setDiscounted(data.data);
+      setDiscounted(data);
     }
   }, [data]);
 
   return (
     <Routes>
-      <Route path="/furnitureShop/" element={<Layout />}>
+      <Route path="/furnitureShop" element={<Layout />}>
         <Route
-          path="/furnitureShop/"
+          path="/furnitureShop"
           index
           element={
             <Main

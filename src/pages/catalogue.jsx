@@ -16,11 +16,11 @@ export const Catalogue = memo(function CatalogueIn(props) {
   const getFurnitureByPageASYNC = useCallback(() => {
     console.log(pageNumber <= totalCount);
     if (fetching)
-      fetch('/express_backend')
+      fetch('http://localhost:5000/api/furniture')
         .then(response => response.json())
         .then(json => {
           console.log(json);
-          setRenderedList([...renderedList, ...json.data]);
+          setRenderedList([...renderedList, ...json]);
           setTotalCount(json.pages);
           setPageNumber(prevState => prevState + 1);
         })
@@ -49,7 +49,7 @@ export const Catalogue = memo(function CatalogueIn(props) {
   useEffect(() => {
     if ((all !== undefined) & (searchWord.length === 0)) {
       console.log(searchWord);
-      setRenderedList(all.data);
+      setRenderedList(all);
     }
   }, [all]);
 
@@ -59,24 +59,24 @@ export const Catalogue = memo(function CatalogueIn(props) {
     if (searchWord.length === 0) {
       switch (e.target.value) {
         case 'new':
-          fetch('/express_backend')
+          fetch('http://localhost:5000/api/furniture')
             .then(response => response.json())
-            .then(json => setRenderedList(json.data));
+            .then(json => setRenderedList(json));
           break;
         case 'toexpensive':
-          fetch('/express_backend')
+          fetch('http://localhost:5000/api/furniture')
             .then(response => response.json())
-            .then(json => setRenderedList(json.data));
+            .then(json => setRenderedList(json));
           break;
         case 'tocheap':
-          fetch('/express_backend')
+          fetch('http://localhost:5000/api/furniture')
             .then(response => response.json())
-            .then(json => setRenderedList(json.data.reverse()));
+            .then(json => setRenderedList(json.reverse()));
           break;
         case 'popular':
-          fetch('/express_backend')
+          fetch('http://localhost:5000/api/furniture')
             .then(response => response.json())
-            .then(json => setRenderedList(json.data));
+            .then(json => setRenderedList(json));
       }
     } else {
       if (e.target.value === 'popular') {
@@ -111,7 +111,7 @@ export const Catalogue = memo(function CatalogueIn(props) {
   });
 
   const searchOnClick = useCallback(searchWord => {
-    fetch('http://localhost:3000/furniture')
+    fetch('http://localhost:5000/api/furniture')
       .then(response => response.json())
       .then(json => {
         const filteredRTK = json.filter(

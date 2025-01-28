@@ -27,6 +27,7 @@
   display: block;
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 .item__picture {
   padding-bottom: 10px;
@@ -54,7 +55,7 @@
 .catalog-item__title {
   margin-top: 10px;
   margin-bottom: 8px;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -71,7 +72,7 @@
 }
 .catalog-item__description {
   margin-bottom: 12px;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -102,6 +103,7 @@
 }
 
 .catalog-item__add {
+  cursor: pointer;
   border-radius: 10px;
   margin-top: 10px;
   height: 37px;
@@ -164,7 +166,7 @@
   }
 
   .catalog-item__title {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -173,7 +175,7 @@
   }
 
   .catalog-item__description {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

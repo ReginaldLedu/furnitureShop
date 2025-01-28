@@ -1,6 +1,8 @@
 //import { createAsyncThunk } from "@reduxjs/toolkit";
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { setCurrentUser, setChosen, clearChosen } from './slice';
+import { dbRef } from '../../../src/firebase';
+import { child } from 'firebase/database';
 
 export const furnitureApi = createApi({
   reducerPath: 'furnitureApi',
@@ -16,8 +18,23 @@ export const furnitureApi = createApi({
     // getDiscountedItems: builder.query({
     //   query: () => "http://localhost:3000/furniture?in-sale=true",
     // }),
+    // getDiscountedItems: builder.query({
+    //   query: () => '/express_backend',
+    // }),
     getDiscountedItems: builder.query({
-      query: () => '/express_backend',
+      query: () => {
+        get(child(dbRef, '/furniture'))
+          .then(snapshot => {
+            if (snapshot.exists()) {
+              console.log(snapshot.val());
+            } else {
+              console.log('No data available');
+            }
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      },
     }),
     getAllLikes: builder.query({
       query: () => 'http://localhost:3000/likes',
@@ -67,9 +84,6 @@ export const furnitureApi = createApi({
               }).then(response => console.log(response.json()));
             }
           });
-        /*url: `http://localhost:3000/likes?furnitureIdFromUser=${furnitureIdFromUser}`,
-        method: "DELETE",
-        body: JSON.stringify({ furnitureIdFromUser, userId }),*/
       },
     }),
     userPostQuery: builder.mutation({
